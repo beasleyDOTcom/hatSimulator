@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
