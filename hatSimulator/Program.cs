@@ -16,8 +16,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.Urls.Add("http://*:"+Environment.GetEnvironmentVariable("PORT"));
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
+
