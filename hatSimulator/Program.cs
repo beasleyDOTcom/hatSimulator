@@ -1,7 +1,15 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using hatSimulator.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddDbContext<HatContext>(options =>
+options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_INFO_STRING"))
+);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
