@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
 namespace hatSimulator.Models
 {
     public class Phone
