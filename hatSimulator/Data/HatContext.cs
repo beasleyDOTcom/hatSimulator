@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using hatSimulator.Models;
+// adding namespace hatContext.Data breaks this. 
     public class HatContext : DbContext
     {
         public DbSet<Hat> Hats {get; set;}
