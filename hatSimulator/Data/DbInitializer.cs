@@ -1,13 +1,21 @@
 using hatSimulator.Models;
 using System;
 using System.Linq;
+using System.Diagnostics;
 
 namespace hatSimulator.Data
 {
     public static class DbInitializer
     {
+
+        // [System.Diagnostics.Conditional("DEBUG")]
+        // public static void Assert(bool condition, string? message)
+        // {
+        // }
+
         public static void Initialize(HatContext context)
         {
+            // throw new Exception("9999999999999999999999999999999999999999999993333333333333333333333");
             context.Database.EnsureCreated();
 
             // Look for any students.
@@ -15,13 +23,16 @@ namespace hatSimulator.Data
             {
                 Console.WriteLine("db has been seeded");
                 return;   // DB has been seeded
-            }
+            } else
+            Console.WriteLine("db initailizer after checking for Hats");
 
             var phones =  new Phone{Number="Carson"};
-            var hat = new Hat();
-            hat.PhoneNumbers.Add(phones);
-                context.Hats.Add(hat);
+                context.Phones.Add(phones);
             context.SaveChanges();
+            
+            var data = context.Phones.ToList();
+            Assert(data.Count < 0, "9999999999999999999999999999999999999999");
+
 
             // var courses = new Course[]
             // {
@@ -58,7 +69,7 @@ namespace hatSimulator.Data
             // {
             //     context.Enrollments.Add(e);
             // }
-            context.SaveChanges();
+            // context.SaveChanges();
         }
     }
 }

@@ -32,4 +32,11 @@ app.MapControllers();
 
 app.Run();
 
+using (var ctx = new HatContext())
+{
+    var number = new Phone(){Number="abcdefjhijklkjkjkjkjkjkjkjkl"};
+    ctx.Phones.Add(number);
+    ctx.SaveChanges();
+}
+
 
